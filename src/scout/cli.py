@@ -8,4 +8,3 @@ from . import __version__
 def main():
     """Scout - the price tracker."""
     click.echo("Hello World")
-
