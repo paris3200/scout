@@ -3,7 +3,6 @@ import nox
 from nox_poetry import session
 from nox_poetry.sessions import Session
 
-
 locations = "src", "tests", "noxfile.py"
 nox.options.sessions = "lint", "tests"
 
@@ -19,7 +18,7 @@ def tests(session: Session) -> None:
 def lint(session: Session) -> None:
     """Run the lint session."""
     args = session.posargs or locations
-    session.install("flake8", "flake8-black")
+    session.install("flake8", "flake8-black", "flake8-isort")
     session.run("flake8", *args)
 
 
