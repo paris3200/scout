@@ -13,6 +13,8 @@ click = "^7.1.2"
 nox = "^2020.12.31"
 nox-poetry = "^0.8.4"
 pytest = "^6.2.3"
+coverage = {extras = ["toml"], version = "^5.5"}
+pytest-cov = "^2.11.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -20,3 +22,14 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 scout = "scout.cli:main"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["scout"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
