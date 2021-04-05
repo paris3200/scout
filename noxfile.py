@@ -6,7 +6,7 @@ from nox_poetry import session
 from nox_poetry.sessions import Session
 
 locations = "src", "tests", "noxfile.py"
-nox.options.sessions = "lint", "safety", "tests"
+nox.options.sessions = "lint", "mypy", "safety", "tests"
 
 
 @session(python=["3.7", "3.8", "3.9"])
@@ -25,7 +25,7 @@ def lint(session: Session) -> None:
 
 
 @session(python="3.9")
-def black(session):
+def black(session: Session) -> None:
     """Run black session."""
     args = session.posargs or locations
     session.install("black")
@@ -33,8 +33,8 @@ def black(session):
 
 
 @session(python="3.9")
-def safety(session):
-    """run the safety session."""
+def safety(session: Session) -> None:
+    """Run the safety session."""
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
             "poetry",
@@ -47,3 +47,11 @@ def safety(session):
         )
         session.install("safety")
         session.run("safety", "check", f"--file={requirements.name}", "--full-report")
+
+
+@session(python="3.9")
+def mypy(session: Session) -> None:
+    """Type-check using mypy."""
+    args = session.posargs or locations
+    session.install("mypy")
+    session.run("mypy", *args)
