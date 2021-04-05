@@ -6,7 +6,7 @@ from nox_poetry import session
 from nox_poetry.sessions import Session
 
 locations = "src", "tests", "noxfile.py"
-nox.options.sessions = "lint", "mypy", "safety", "tests"
+nox.options.sessions = "lint", "mypy", "pytype", "safety", "tests"
 
 
 @session(python=["3.7", "3.8", "3.9"])
@@ -55,3 +55,11 @@ def mypy(session: Session) -> None:
     args = session.posargs or locations
     session.install("mypy")
     session.run("mypy", *args)
+
+
+@session(python="3.8")
+def pytype(session):
+    """Run the static type checker."""
+    args = session.posargs or ["--disable=import-error", *locations]
+    session.install("pytype")
+    session.run("pytype", *args)
