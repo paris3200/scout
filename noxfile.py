@@ -18,7 +18,7 @@ def tests(session: Session) -> None:
 def lint(session: Session) -> None:
     """Run the lint session."""
     args = session.posargs or locations
-    session.install("flake8", "flake8-black", "flake8-isort")
+    session.install("flake8", "flake8-black", "flake8-bugbear", "flake8-isort")
     session.run("flake8", *args)
 
 
