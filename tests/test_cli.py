@@ -1,3 +1,4 @@
+"""Test cases for the cli module."""
 import click.testing
 
 from scout import cli
