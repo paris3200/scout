@@ -1,1 +1,10 @@
-This is docs/index.rst.
+Scout
+=====
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   license
+   reference
