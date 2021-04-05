@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "scout"
+version = "0.1.0"
+description = ""
+authors = ["Jason Paris <paris3200@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+click = "^7.1.2"
+
+[tool.poetry.dev-dependencies]
+nox = "^2020.12.31"
+nox-poetry = "^0.8.4"
+pytest = "^6.2.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+scout = "scout.cli:main"
