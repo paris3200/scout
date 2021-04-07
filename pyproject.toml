@@ -8,6 +8,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.7"
 click = "^7.1.2"
+SQLAlchemy = "^1.4.5"
 
 [tool.poetry.dev-dependencies]
 nox = "^2020.12.31"
@@ -32,6 +33,8 @@ Sphinx = "^3.5.3"
 sphinx-autodoc-typehints = "^1.11.1"
 codecov = "^2.1.11"
 testfixtures = "^6.17.1"
+factory-boy = "^3.2.0"
+pytz = "^2021.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
