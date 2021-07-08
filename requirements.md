@@ -13,9 +13,17 @@
         * id
         * name
         * description
-        * category
 
-    * Price
+    * Categories
+        * id
+        * description
+
+    * Product Categories
+        * product_id
+        * categories_id
+
+    * Price Snapshot
+        * id
         * product_id
         * price
         * unit_price
@@ -24,9 +32,15 @@
 
     * URL_mappings
         * product_id
+        * retailer_id
         * url
         * html_tag
         * unit_quanity
+
+    * Retailer
+        * id
+        * Name
+        * website
 
 
 * Scraper Helper

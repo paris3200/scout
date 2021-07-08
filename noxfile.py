@@ -10,7 +10,7 @@ nox.options.sessions = "lint", "mypy", "pytype", "safety", "tests"
 package = "scout"
 
 
-@session(python=["3.7", "3.8", "3.9"])
+@session(python=["3.8", "3.9"])
 def tests(session: Session) -> None:
     """Run the test suite."""
     session.install("pytest", "pytest-cov", ".", "testfixtures", "factory_boy", "pytz")
